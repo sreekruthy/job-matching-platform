@@ -2,28 +2,34 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const { sequelize } = require("./models");
-
 const app = express();
-app.use(cors());
+
+// Middleware
+app.use(cors({
+    origin: "*", // or frontend url
+    credentials: true,
+  }));
+
 app.use(express.json());
 
+// Routes
+const jobRoutes = require("./routes/jobRoutes");
+app.use("/jobs", jobRoutes);
+
+// Root route
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.send("API Running");
 });
 
-app.use("/auth", require("./routes/authRoutes"));
-app.use("/user", require("./routes/userRoutes"));
-app.use("/jobs", require("./routes/jobRoutes"));
+// Sync database    
+const { sequelize } = require("./models");
+sequelize.sync({}).then(() => {
+  console.log("Database synced");
+});
 
+// Start server
 const PORT = process.env.PORT || 5001;
 
-sequelize.sync().then(() => {
-    console.log("Database synced");
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Database connection failed ", err);
-  });
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
