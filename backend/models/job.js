@@ -11,5 +11,11 @@ module.exports = (sequelize) => {
     description: DataTypes.TEXT,
     experience_required: DataTypes.INTEGER,
     created_by: DataTypes.INTEGER,
-  });
+  },
+{
+  indexes: [
+    { fields: ["created_by"] },
+    { fields: ["experience_required"] },
+  ],
+});
 };

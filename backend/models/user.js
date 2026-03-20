@@ -11,8 +11,17 @@ module.exports = (sequelize) => {
     email: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
     },
     password: DataTypes.STRING,
     role: DataTypes.STRING, // candidate or recruiter
-  });
+  },
+{
+  indexes: [
+    {
+      unique: true,
+      fields: ["email"],
+    },
+  ],
+});
 };

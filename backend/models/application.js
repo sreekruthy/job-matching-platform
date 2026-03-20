@@ -11,5 +11,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: "applied",
     },
-  });
+  },
+{
+    indexes: [
+      { fields: ["UserId"] },
+      { fields: ["JobId"] },
+    ],
+
+});
 };
