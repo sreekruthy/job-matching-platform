@@ -29,8 +29,10 @@ exports.register = async (req, res) => {
 
 // LOGIN
 exports.login = async (req, res) => {
+  console.log("LOGIN API HIT");
   try {
     const { email, password } = req.body;
+    console.log("Login request:", email);
 
     const user = await User.findOne({ where: { email } });
     if (!user) {
@@ -50,6 +52,7 @@ exports.login = async (req, res) => {
 
     res.json({ msg: "Login successful", token });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 };

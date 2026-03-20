@@ -1,10 +1,11 @@
 const sequelize = require("../config/db");
+const Sequelize = require("sequelize");
 
 const User = require("./user")(sequelize);
 const Job = require("./job")(sequelize);
 const Skill = require("./skill")(sequelize);
 const UserSkill = require("./userSkill")(sequelize);
-const JobSkill = require("./jobSkill")(sequelize);
+const JobSkill = require("./jobSkill")(sequelize, Sequelize.DataTypes);
 const Application = require("./application")(sequelize);
 
 // RELATIONSHIPS 

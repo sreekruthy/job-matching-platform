@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const jobController = require("../controllers/jobController");
+const auth = require("../middleware/authMiddleware");
 
-router.get("/", (req, res) => {
-  res.send("Job route working");
-});
+// Create job (only recruiter ideally)
+router.post("/", auth, jobController.createJob);
+
+// Add skills to job
+router.post("/:id/skills", auth, jobController.addSkills);
+
+// Get jobs
+router.get("/", auth, jobController.getJobs);
 
 module.exports = router;
