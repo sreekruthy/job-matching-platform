@@ -57,3 +57,15 @@ exports.getJobs = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+const matchService = require("../services/matchService");
+
+// GET MATCHED JOBS
+exports.getMatches = async (req, res) => {
+  try {
+    const data = await matchService.matchJobs(req.user.id);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

@@ -10,6 +10,6 @@ router.post("/", auth, jobController.createJob);
 router.post("/:id/skills", auth, jobController.addSkills);
 
 // Get jobs
-router.get("/", auth, jobController.getJobs);
+router.get("/match", auth, jobController.getMatches);
 
 module.exports = router;
