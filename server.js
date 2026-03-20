@@ -3,11 +3,29 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+
+// Middleware
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  }));
+
 app.use(express.json());
 
+// Routes
+const jobRoutes = require("./routes/jobRoutes");
+app.use("/", jobRoutes);
+
+// Root route
 app.get("/", (req, res) => {
   res.send("API Running");
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// Sync database    
+const { sequelize } = require("./models");
+sequelize.sync().then(() => {
+  console.log("Database synced");
+});
+
+// Start server
+app.listen(5001, () => console.log("Server running on port 5001"));
