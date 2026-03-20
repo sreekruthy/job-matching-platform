@@ -11,7 +11,7 @@ function Dashboard() {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:5001/jobs/match",
+          `${process.env.REACT_APP_API_URL}/jobs/match`,
           {
             headers: { Authorization: token },
           }

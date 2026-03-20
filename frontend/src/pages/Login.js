@@ -7,7 +7,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5001/auth/login",
+        `${process.env.REACT_APP_API_URL}/auth/login`,  // Use environment variable for API URL
         form
       );
 
