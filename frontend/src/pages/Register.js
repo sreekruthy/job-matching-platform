@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "https://job-matching-platform-jgbg.onrender.com"; // Change this to your actual backend URL ( http://localhost:5001 for local testing)
-
 function Register() {
   const [form, setForm] = useState({
     name: "",
