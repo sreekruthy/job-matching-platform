@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -54,6 +55,12 @@ function Login() {
       >
         Login
       </button>
+      <p style={{ marginTop: "10px" }}>
+        Don't have an account?{" "}
+        <Link to="/register" style={{ color: "#2980b9" }}>
+          Register
+        </Link>
+      </p>
     </div>
   );
 }
