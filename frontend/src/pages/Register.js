@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "https://your-backend.onrender.com"; // Change this to your actual backend URL ( http://localhost:5001 for local testing)
+const BASE_URL = "https://job-matching-platform-jgbg.onrender.com"; // Change this to your actual backend URL ( http://localhost:5001 for local testing)
 
 function Register() {
   const [form, setForm] = useState({
@@ -16,7 +16,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post(`${BASE_URL}/auth/register`, form);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, form);
       alert("Registered successfully");
       console.log(res.data);
     } catch (err) {
