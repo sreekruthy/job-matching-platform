@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleLogin = async () => {
+    const navigate = useNavigate();
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,  // Use environment variable for API URL
@@ -15,7 +17,13 @@ function Login() {
       console.log("LOGIN RESPONSE:", res.data);
 
       localStorage.setItem("token", res.data.token);
-      window.location.href = "/dashboard";
+      const user = res.data.user;
+      if (user.role === "recruiter") {
+        navigate("/post-job");
+      } 
+      else {
+        navigate("/add-skills");
+      }
     } catch (err) {
       console.error("Login error:", err.response?.data || err.message);
       alert("Login failed");

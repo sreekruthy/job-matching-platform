@@ -40,7 +40,7 @@ function Dashboard() {
       {loading ? (
         <p>Loading jobs... please wait</p>
       ) : jobs.length === 0 ? (
-        <p>No matching jobs found , sorry! Better luck next time!</p>
+        <p>Please add your skills to see job matches</p>
       ) : (
         jobs.map((job) => (
           <div

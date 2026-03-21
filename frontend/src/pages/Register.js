@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
+    role: "candidate", // Default role is candidate
   });
 
   const handleChange = (e) => {
@@ -13,10 +15,12 @@ function Register() {
   };
 
   const handleRegister = async () => {
+    const navigate = useNavigate();
     try {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, form);
       alert("Registered successfully");
       console.log(res.data);
+      navigate("/login"); // Redirect to login after registration
     } catch (err) {
       console.error(err);
       alert("Registration failed");
@@ -45,6 +49,11 @@ function Register() {
         placeholder="Password"
         onChange={handleChange}
       /><br /><br />
+
+      <select name="role" onChange={handleChange}>
+        <option value="candidate">Candidate</option>
+        <option value="recruiter">Recruiter</option>
+      </select><br /><br />
 
       <button onClick={handleRegister}>Register</button>
     </div>
