@@ -7,6 +7,24 @@ A full-stack job matching platform that connects candidates with relevant job op
 - Frontend: https://job-matching-platform-two.vercel.app/  
 - Backend: https://job-matching-platform-jgbg.onrender.com
 
+## Screenshots
+
+### Login page
+![login](image-1.png)
+
+### Register page
+![register](image-2.png)
+
+### Add Skills
+![add-skills](image-3.png)
+
+### Dashboard
+![dashboard-candidate](image-4.png)
+
+### Post Job
+![post-job](image-5.png)
+
+
 ## Features
 
 - User registration and login
