@@ -10,6 +10,7 @@ module.exports = (sequelize) => {
     status: {
       type: DataTypes.STRING,
       defaultValue: "applied",
+      allowNull: false,
     },
   },
 {

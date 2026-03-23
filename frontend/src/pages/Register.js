@@ -13,9 +13,9 @@ function Register() {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+  
+  const navigate = useNavigate();
   const handleRegister = async () => {
-    const navigate = useNavigate();
     try {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, form);
       alert("Registered successfully");
