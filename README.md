@@ -10,19 +10,19 @@ A full-stack job matching platform that connects candidates with relevant job op
 ## Screenshots
 
 ### Login page
-![login](image-1.png)
+![login](screenshots/image-1.png)
 
 ### Register page
-![register](image-2.png)
+![register](screenshots/image-2.png)
 
 ### Add Skills
-![add-skills](image-3.png)
+![add-skills](screenshots/image-3.png)
 
 ### Dashboard
-![dashboard-candidate](image-4.png)
+![dashboard-candidate](screenshots/image-4.png)
 
 ### Post Job
-![post-job](image-5.png)
+![post-job](screenshots/image-5.png)
 
 
 ## Features
