@@ -21,20 +21,21 @@ function PostJob() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post(
+     const res =await axios.post(
         `${process.env.REACT_APP_API_URL}/jobs`,
         {
           title: job.title,
           description: "",
           experience_required: 0,
-          skills: job.skills.split(","),
         },
         {
           headers: {Authorization: token},
         }
       );
 
-      const res = await axios.post(
+      const jobId = res.data.id; 
+
+      await axios.post(
         `${process.env.REACT_APP_API_URL}/jobs/${jobId}/skills`,
         {skills: job.skills.split(",")},
         {
