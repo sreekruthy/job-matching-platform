@@ -14,6 +14,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/add-skills" element={<AddSkills />} />
         <Route path="/post-job" element={<PostJob />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/applicants" element={<ViewApplicants />} />
   </Routes>
   );
