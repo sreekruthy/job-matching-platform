@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Register from "./pages/Register";
 import AddSkills from "./pages/AddSkills";
 import PostJob from "./pages/PostJob";
+import ViewApplicants from "./pages/ViewApplicants";
 
 function App() {
   return (
