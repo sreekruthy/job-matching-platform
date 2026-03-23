@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
 require("dotenv").config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 const jobRoutes = require("./routes/jobRoutes");
 app.use("/jobs", jobRoutes);
 app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 
 // Root route
 app.get("/", (req, res) => {
