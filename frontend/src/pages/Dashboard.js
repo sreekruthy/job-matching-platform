@@ -64,8 +64,6 @@ function Dashboard() {
           >
             <h5>{job.title}</h5>
             <p>Match Score: {job.score}%</p>
-
-            {/* ✅ FIXED APPLY BUTTON */}
             <button
               onClick={async () => {
                 try {

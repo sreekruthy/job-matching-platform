@@ -25,7 +25,7 @@ function Login() {
         navigate("/post-job");
       } 
       else {
-        navigate("/dashboard");
+        navigate("/add-skills");
       }
     } catch (err) {
       console.error("Login error:", err.response?.data || err.message);

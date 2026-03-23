@@ -25,8 +25,18 @@ function PostJob() {
         `${process.env.REACT_APP_API_URL}/jobs`,
         {
           title: job.title,
+          description: "",
+          experience_required: 0,
           skills: job.skills.split(","),
         },
+        {
+          headers: {Authorization: token},
+        }
+      );
+
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/jobs/${jobId}/skills`,
+        {skills: job.skills.split(",")},
         {
           headers: {Authorization: token},
         }
